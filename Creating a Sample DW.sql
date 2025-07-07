@@ -19,10 +19,10 @@ go
 --Fill the Customer dimension with sample Values
 
 Insert into DimCustomer(CustomerAltID,CustomerName,Gender)values
-('IMI-001','Henry Ford','M'),
-('IMI-002','Bill Gates','M'),
-('IMI-003','Muskan Shaikh','F'),
-('IMI-004','Richard Thrubin','M'),
+('IMI-001','Alex Tesfaye','M'),
+('IMI-002','Bill Osborn','M'),
+('IMI-003','Lady Gaga','F'),
+('IMI-004','Richard Gere','M'),
 ('IMI-005','Emma Wattson','F');
 Go
 
@@ -46,7 +46,7 @@ Insert into DimProduct(ProductAltKey,ProductName, ProductActualCost, ProductSale
 ('ITM-001','Wheat Floor 1kg',5.50,6.50),
 ('ITM-002','Rice Grains 1kg',22.50,24),
 ('ITM-003','SunFlower Oil 1 ltr',42,43.5),
-('ITM-004','Nirma Soap',18,20),
+('ITM-004','Swan Soap',18,20),
 ('ITM-005','Arial Washing Powder 1kg',135,139);
 Go
 
@@ -68,9 +68,9 @@ Go
 --Fill the Store Dimension with sample Values
 
 Insert into DimStores(StoreAltID,StoreName,StoreLocation,City,State,Country )values
-('LOC-A1','X-Mart','S.P. RingRoad','Ahmedabad','Guj','India'),
-('LOC-A2','X-Mart','Maninagar','Ahmedabad','Guj','India'),
-('LOC-A3','X-Mart','Sivranjani','Ahmedabad','Guj','India');
+('LOC-A1','Walmart','Bethany','Allen','Texas','U.S'),
+('LOC-A2','Lowes','Eldorado','','Mckienny','Texas','U.S'),
+('LOC-A3','Target','Main St.','Plano','Texas','U.S');
 Go
 
 /*Step 5
@@ -91,12 +91,12 @@ Go
 --Fill the Dimension Sales Person with sample values:
 
 Insert into DimSalesPerson(SalesPersonAltID,SalesPersonName,StoreID,City,State,Country )values
-('SP-DMSPR1','Ashish',1,'Ahmedabad','Guj','India'),
-('SP-DMSPR2','Ketan',1,'Ahmedabad','Guj','India'),
-('SP-DMNGR1','Srinivas',2,'Ahmedabad','Guj','India'),
-('SP-DMNGR2','Saad',2,'Ahmedabad','Guj','India'),
-('SP-DMSVR1','Jasmin',3,'Ahmedabad','Guj','India'),
-('SP-DMSVR2','Jacob',3,'Ahmedabad','Guj','India');
+('SP-DMSPR1','Alex',1,'Plano','Texas','U.S'),
+('SP-DMSPR2','Ariam',1,'Allen','Texas','U.S'),
+('SP-DMNGR1','Wengel',2,'Allen','Texas','U.S'),
+('SP-DMNGR2','Rebecca',2,'Allen','Texas','U.S'),
+('SP-DMSVR1','Elizabeth',3,'Mckinney','Texas','U.S'),
+('SP-DMSVR2','Ben',3,'Plano','Texas','U.S');
 Go
 
 /*Step 6
@@ -158,8 +158,8 @@ Function	Detail (e.g. for 16-Aug-2013)
 3	Select DATEPART(QQ , Getdate()) as QuarterValue	Return Value of the Quarter=3 for Current Date
 4	Select DATEPART(DW, Getdate()) as DayOfWeekValue	Return integer Value of day=6 (Friday) in Week for Current Date as per US standard
 5	Select CONVERT (char(8),Getdate(),112)	Return Key=20130816 Value for current Date
-6	Select CONVERT (char(10),Getdate(),103)	Return date =16/08/2013 in ìdd-MM-yyyyî format, UK, Europe
-7	Select CONVERT (char(10),Getdate(),101)	Return date=08/16/2013 in ìMM-dd-yyyyî format, US
+6	Select CONVERT (char(10),Getdate(),103)	Return date =16/08/2013 in ‚Äúdd-MM-yyyy‚Äù format, UK, Europe
+7	Select CONVERT (char(10),Getdate(),101)	Return date=08/16/2013 in ‚ÄúMM-dd-yyyy‚Äù format, US
 8	Select DATEPART(DD , Getdate()) as DayOfMonthValue	Return integer Day=16 Value for Current Date
 9	select DATENAME(DW, Getdate()) AS DayName	Return Name=Friday of the Day for Current Date.
 10	select DATEPART(WW, Getdate()) AS WeekOfYear	Returns Value of Week in Year=33*/
@@ -769,7 +769,7 @@ Attribute Name	                                 Dimension Table	                
 
 Date (1-jan-2013), Sales Date Key (20130101)	     Dim Date	                             Date Key: 20130101
 Time (13:00:00) Sales Time Alt Key (130000)	         Dim Time	                             Time Key: 46800
-Composite key (Sales Person Alt ID+ Name ) for ('SP-DMSVR1'+íJacobí) Dim Sales Person        Sales Person ID: 6
+Composite key (Sales Person Alt ID+ Name ) for ('SP-DMSVR1'+‚ÄôJacob‚Äô) Dim Sales Person        Sales Person ID: 6
 Product Alt Key of (Sunflower Oil 1kg)'ITM-003'	Dim Product	                                 Product ID: 3
 Product Alt Key (Nirma Soap) 'ITM-004'	             Dim Product	                         Product ID: 4
 Store Alt ID of (Sivranjani store) 'LOC-A3'	         Dim Store	                             Store ID: 3
